@@ -11,19 +11,24 @@ namespace CWingetPosh
 {
     static class WingetProxy
     {
+        /// <summary>
+        /// 
+        /// </summary>
         static public void WGList()
         {
             PowerShell posh = PowerShell.Create();
-            posh.AddScript("Get-ChildItem");
+            posh.AddScript("winget list");
 
             Collection<PSObject> PSOuput;
             PSOuput = posh.Invoke();
-            foreach(PSObject obj in PSOuput)
+            foreach (PSObject obj in PSOuput)
             {
                 if (obj != null)
                 {
-                    Console.WriteLine(obj.ToString());
+                    Debug.WriteLine(obj.ToString());
                 }
+
+
             }
         }
     }
