@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             button1 = new Button();
+            lb1 = new ListBox();
             SuspendLayout();
             // 
             // button1
@@ -41,11 +42,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // lb1
+            // 
+            lb1.FormattingEnabled = true;
+            lb1.ItemHeight = 15;
+            lb1.Location = new Point(12, 64);
+            lb1.Name = "lb1";
+            lb1.Size = new Size(776, 379);
+            lb1.TabIndex = 1;
+            // 
             // fMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lb1);
             Controls.Add(button1);
             Name = "fMain";
             Text = "CWingetPosh";
@@ -55,5 +66,6 @@
         #endregion
 
         private Button button1;
+        private ListBox lb1;
     }
 }

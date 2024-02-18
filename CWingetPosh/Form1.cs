@@ -9,7 +9,12 @@ namespace CWingetPosh
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WingetProxy.WGList(); 
+            lb1.Items.Clear();
+            List<string> list =  WingetProxy.WGList(); 
+            foreach (string item in list)
+            {
+                lb1.Items.Add(item);
+            }
         }
     }
 }

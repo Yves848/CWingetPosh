@@ -14,10 +14,12 @@ namespace CWingetPosh
         /// <summary>
         /// 
         /// </summary>
-        static public void WGList()
+        static public List<string> WGList()
         {
+            List<string> list = new List<string>();
             PowerShell posh = PowerShell.Create();
             posh.AddScript("winget list");
+            //posh.AddScript("$psVersiontable");
 
             Collection<PSObject> PSOuput;
             PSOuput = posh.Invoke();
@@ -25,11 +27,12 @@ namespace CWingetPosh
             {
                 if (obj != null)
                 {
-                    Debug.WriteLine(obj.ToString());
+                    byte[] utf8Bytes = Encoding.UTF8.GetBytes(obj.ToString());
+                    string utf8String = Encoding.UTF8.GetString(utf8Bytes);
+                    list.Add(utf8String);
                 }
-
-
             }
+            return list;
         }
     }
 }
